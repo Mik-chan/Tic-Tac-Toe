@@ -7,6 +7,7 @@
 //
 
 #include "Game.hpp"
+#include "Coordinate.hpp"
 
 Game::Game(std::shared_ptr<Player> circle, std::shared_ptr<Player> cross){
     this->circle = circle;
@@ -17,14 +18,14 @@ const TicTacToe& Game::play(){
     TicTacToe::game_state_t state;
     
     while((state = ttt.get_game_state()) == TicTacToe::going_on){
-        std::pair<uint16_t, uint16_t> decision;
+        Coordinate decision;
         if(ttt.get_turn() == TicTacToe::cell_state_t::circle){
             decision = circle->decide(ttt, TicTacToe::cell_state_t::circle);
-            ttt.play_circle(decision.first, decision.second);
+            ttt.play_circle(decision.x, decision.y);
         }
         else if(ttt.get_turn() == TicTacToe::cell_state_t::cross){
             decision = cross->decide(ttt, TicTacToe::cell_state_t::cross);
-            ttt.play_cross(decision.first, decision.second);
+            ttt.play_cross(decision.x, decision.y);
         }
     }
     

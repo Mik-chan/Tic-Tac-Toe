@@ -12,6 +12,6 @@
 Player::Player(){}
 Player::~Player(){}
 
-std::pair<uint16_t, uint16_t> Player::operator()(const TicTacToe& ttt, TicTacToe::cell_state_t play_side){
+Coordinate Player::operator()(const TicTacToe& ttt, TicTacToe::cell_state_t play_side){
     return decide(ttt, play_side);
 }

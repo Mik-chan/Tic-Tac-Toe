@@ -12,15 +12,13 @@
 RandomPlayer::RandomPlayer() {}
 RandomPlayer::~RandomPlayer() {}
 
-std::pair<uint16_t, uint16_t> RandomPlayer::decide(const TicTacToe& ttt, TicTacToe::cell_state_t side){
+Coordinate RandomPlayer::decide(const TicTacToe& ttt, TicTacToe::cell_state_t side){
     std::random_device rd;
     std::mt19937 engine(rd());
     std::uniform_int_distribution<uint16_t> dist(0, 8);
     uint16_t r;
     
-    do{
-        r = dist(engine);
-    }while(ttt.arr_state()[r] != TicTacToe::empty);
+    do{ r = dist(engine); }while(ttt.arr_state()[r] != TicTacToe::empty);
     
-    return {r % 3, r / 3};
+    return {static_cast<uint16_t>(r % 3), static_cast<uint16_t>(r / 3)};
 }

@@ -12,12 +12,12 @@
 ConsolePlayer::ConsolePlayer(const std::string& name) : name(name) {}
 ConsolePlayer::~ConsolePlayer() {}
 
-std::pair<uint16_t, uint16_t> ConsolePlayer::decide(const TicTacToe& ttt, TicTacToe::cell_state_t side){
+Coordinate ConsolePlayer::decide(const TicTacToe& ttt, TicTacToe::cell_state_t side){
     std::cout <<
     name << "'s turn (" << side << ")" << std::endl <<
     "Current game state: " << ttt << std::endl <<
     "Your decision: ";
-    std::pair<uint16_t, uint16_t> res;
-    std::cin >> res.first >> res.second;
+    Coordinate res;
+    std::cin >> res.x >> res.y;
     return res;
 }

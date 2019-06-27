@@ -16,7 +16,7 @@ public:
     RandomPlayer();
     ~RandomPlayer();
     
-    std::pair<uint16_t, uint16_t> decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
+    Coordinate decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
 };
 
 #endif /* RandomPlayer_hpp */

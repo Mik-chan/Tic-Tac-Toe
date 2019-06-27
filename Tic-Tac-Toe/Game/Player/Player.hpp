@@ -11,14 +11,15 @@
 
 #include <tuple>
 #include "TicTacToe.hpp"
+#include "Coordinate.hpp"
 
 class Player{
 public:
     Player();
     virtual ~Player();
     
-    virtual std::pair<uint16_t, uint16_t> decide(const TicTacToe& ttt, TicTacToe::cell_state_t play_side) = 0;
-    std::pair<uint16_t, uint16_t> operator()(const TicTacToe& ttt, TicTacToe::cell_state_t play_side);    
+    virtual Coordinate decide(const TicTacToe& ttt, TicTacToe::cell_state_t play_side) = 0;
+    Coordinate operator()(const TicTacToe& ttt, TicTacToe::cell_state_t play_side);    
 };
 
 #endif /* Player_hpp */
