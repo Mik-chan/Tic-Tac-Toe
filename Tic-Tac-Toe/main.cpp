@@ -11,13 +11,17 @@
 
 #include "ConsolePlayer.hpp"
 #include "RandomPlayer.hpp"
+#include "MinMaxPlayer.hpp"
 #include "Game/Game.hpp"
 
 int main(int argc, const char * argv[]) {
-    Game game(std::shared_ptr<Player>(new ConsolePlayer("Player 1")),
-              std::shared_ptr<Player>(new RandomPlayer));
-    
-    std::cout << game.play() << std::endl;
+    for(size_t i = 0; i < 100; i++){
+        Game game(std::shared_ptr<Player>(new RandomPlayer),
+                  std::shared_ptr<Player>(new MinMaxPlayer));
+        
+        std::cout << game.play() << std::endl;
+
+    }
     
     return 0;
 }

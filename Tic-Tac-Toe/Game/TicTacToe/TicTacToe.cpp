@@ -81,8 +81,10 @@ TicTacToe::game_state_t TicTacToe::get_game_state() const{
     if(check_win(circle)) return circle_won;
     else if(check_win(cross)) return cross_won;
     
-    auto count = count_state();
-    if(count.first + count.second == 9) return draw;
+    uint16_t em = 0;
+    for(const cell_state_t& cell : state)
+         em += (cell == empty);
+    if(em == 0) return draw;
     
     return going_on;
 }

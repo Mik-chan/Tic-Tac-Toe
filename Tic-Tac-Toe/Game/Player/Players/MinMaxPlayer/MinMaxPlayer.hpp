@@ -10,6 +10,7 @@
 #define MinMaxPlayer_hpp
 
 #include <map>
+#include <array>
 #include "Player.hpp"
 
 class MinMaxPlayer : public Player{
@@ -20,11 +21,18 @@ public:
     Coordinate decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
     
 private:
-    std::pair<uint16_t, uint16_t> minmax(uint16_t state);
-    uint16_t flip_sides(uint16_t state) const;
-    uint16_t get(uint16_t coord, uint16_t state) const;
+    struct MinMaxS{
+        uint16_t where;
+        double grade;
+    };
     
-    static std::map<uint16_t, std::pair<uint16_t, uint16_t>> memory;
+    MinMaxS minmax(uint16_t state);
+    uint16_t flip_sides(uint16_t state) const;
+    std::array<uint16_t, 9> get(uint16_t state) const;
+    uint16_t set(uint16_t state, uint16_t where, uint16_t what) const;
+
+    
+    bool check_win(bool me_winner, uint16_t state) const;
 };
 
 #endif /* MinMaxPlayer_hpp */
