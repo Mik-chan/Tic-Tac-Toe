@@ -7,9 +7,16 @@
 //
 
 #include <iostream>
+#include <memory>
+
+#include "ConsolePlayer.hpp"
+#include "Game/Game.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Game game(std::shared_ptr<Player>(new ConsolePlayer("Player 1")),
+              std::shared_ptr<Player>(new ConsolePlayer("Player 2")));
+    
+    std::cout << game.play() << std::endl;
+    
     return 0;
 }
