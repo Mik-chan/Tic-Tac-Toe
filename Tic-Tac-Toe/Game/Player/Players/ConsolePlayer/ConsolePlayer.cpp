@@ -21,12 +21,3 @@ std::pair<uint16_t, uint16_t> ConsolePlayer::decide(const TicTacToe& ttt, TicTac
     std::cin >> res.first >> res.second;
     return res;
 }
-
-
-/*
- ~ConsolePlayer();
- 
- std::pair<uint16_t, uint16_t> decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
-
- */
-

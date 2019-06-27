@@ -10,11 +10,12 @@
 #include <memory>
 
 #include "ConsolePlayer.hpp"
+#include "RandomPlayer.hpp"
 #include "Game/Game.hpp"
 
 int main(int argc, const char * argv[]) {
     Game game(std::shared_ptr<Player>(new ConsolePlayer("Player 1")),
-              std::shared_ptr<Player>(new ConsolePlayer("Player 2")));
+              std::shared_ptr<Player>(new RandomPlayer));
     
     std::cout << game.play() << std::endl;
     
