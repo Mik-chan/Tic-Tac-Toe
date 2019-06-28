@@ -14,6 +14,7 @@
 		17B4129522C527C6003795FC /* ConsolePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4129322C527C6003795FC /* ConsolePlayer.cpp */; };
 		17B4129A22C52E09003795FC /* RandomPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4129822C52E09003795FC /* RandomPlayer.cpp */; };
 		17B4129E22C5303C003795FC /* MinMaxPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4129C22C5303C003795FC /* MinMaxPlayer.cpp */; };
+		17B412A822C59D02003795FC /* MenacePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412A622C59D02003795FC /* MenacePlayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,8 @@
 		17B4129C22C5303C003795FC /* MinMaxPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MinMaxPlayer.cpp; sourceTree = "<group>"; };
 		17B4129D22C5303C003795FC /* MinMaxPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MinMaxPlayer.hpp; sourceTree = "<group>"; };
 		17B412A022C533D2003795FC /* Coordinate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coordinate.hpp; sourceTree = "<group>"; };
+		17B412A622C59D02003795FC /* MenacePlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenacePlayer.cpp; sourceTree = "<group>"; };
+		17B412A722C59D02003795FC /* MenacePlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenacePlayer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 		17B4129222C527A2003795FC /* Players */ = {
 			isa = PBXGroup;
 			children = (
+				17B412A522C59CC3003795FC /* MenacePlayer */,
 				17B4129B22C53024003795FC /* MinMaxPlayer */,
 				17B4129722C52DEF003795FC /* RandomPlayer */,
 				17B4129622C52DDB003795FC /* ConsolePlayer */,
@@ -156,6 +160,15 @@
 				17B412A022C533D2003795FC /* Coordinate.hpp */,
 			);
 			path = Coordinate;
+			sourceTree = "<group>";
+		};
+		17B412A522C59CC3003795FC /* MenacePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				17B412A722C59D02003795FC /* MenacePlayer.hpp */,
+				17B412A622C59D02003795FC /* MenacePlayer.cpp */,
+			);
+			path = MenacePlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +234,7 @@
 				17B4128822C5164F003795FC /* TicTacToe.cpp in Sources */,
 				17B4129522C527C6003795FC /* ConsolePlayer.cpp in Sources */,
 				17B4128022C51634003795FC /* main.cpp in Sources */,
+				17B412A822C59D02003795FC /* MenacePlayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

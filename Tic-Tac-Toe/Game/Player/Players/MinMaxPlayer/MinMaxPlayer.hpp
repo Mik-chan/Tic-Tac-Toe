@@ -9,7 +9,6 @@
 #ifndef MinMaxPlayer_hpp
 #define MinMaxPlayer_hpp
 
-#include <map>
 #include <array>
 #include "Player.hpp"
 

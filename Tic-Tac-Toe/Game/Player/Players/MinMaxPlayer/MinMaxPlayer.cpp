@@ -6,6 +6,7 @@
 //  Copyright © 2019 George Endo. All rights reserved.
 //
 
+#include <map>
 #include <cmath>
 #include <vector>
 #include "MinMaxPlayer.hpp"
