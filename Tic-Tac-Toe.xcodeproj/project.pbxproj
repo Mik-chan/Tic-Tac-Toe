@@ -15,6 +15,10 @@
 		17B4129A22C52E09003795FC /* RandomPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4129822C52E09003795FC /* RandomPlayer.cpp */; };
 		17B4129E22C5303C003795FC /* MinMaxPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4129C22C5303C003795FC /* MinMaxPlayer.cpp */; };
 		17B412A822C59D02003795FC /* MenacePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412A622C59D02003795FC /* MenacePlayer.cpp */; };
+		17B412AC22C59E62003795FC /* MenaceStateTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412AA22C59E62003795FC /* MenaceStateTransformer.cpp */; };
+		17B412AF22C5A1A2003795FC /* MSTMirror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412AD22C5A1A2003795FC /* MSTMirror.cpp */; };
+		17B412B222C5A29A003795FC /* MSTRotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412B022C5A29A003795FC /* MSTRotate.cpp */; };
+		17B412B522C5A33A003795FC /* MSTCombined.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B412B322C5A33A003795FC /* MSTCombined.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +51,14 @@
 		17B412A022C533D2003795FC /* Coordinate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coordinate.hpp; sourceTree = "<group>"; };
 		17B412A622C59D02003795FC /* MenacePlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenacePlayer.cpp; sourceTree = "<group>"; };
 		17B412A722C59D02003795FC /* MenacePlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenacePlayer.hpp; sourceTree = "<group>"; };
+		17B412AA22C59E62003795FC /* MenaceStateTransformer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenaceStateTransformer.cpp; sourceTree = "<group>"; };
+		17B412AB22C59E62003795FC /* MenaceStateTransformer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenaceStateTransformer.hpp; sourceTree = "<group>"; };
+		17B412AD22C5A1A2003795FC /* MSTMirror.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MSTMirror.cpp; sourceTree = "<group>"; };
+		17B412AE22C5A1A2003795FC /* MSTMirror.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MSTMirror.hpp; sourceTree = "<group>"; };
+		17B412B022C5A29A003795FC /* MSTRotate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MSTRotate.cpp; sourceTree = "<group>"; };
+		17B412B122C5A29A003795FC /* MSTRotate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MSTRotate.hpp; sourceTree = "<group>"; };
+		17B412B322C5A33A003795FC /* MSTCombined.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MSTCombined.cpp; sourceTree = "<group>"; };
+		17B412B422C5A33A003795FC /* MSTCombined.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MSTCombined.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +177,26 @@
 		17B412A522C59CC3003795FC /* MenacePlayer */ = {
 			isa = PBXGroup;
 			children = (
+				17B412A922C59E40003795FC /* MenaceHelper */,
 				17B412A722C59D02003795FC /* MenacePlayer.hpp */,
 				17B412A622C59D02003795FC /* MenacePlayer.cpp */,
 			);
 			path = MenacePlayer;
+			sourceTree = "<group>";
+		};
+		17B412A922C59E40003795FC /* MenaceHelper */ = {
+			isa = PBXGroup;
+			children = (
+				17B412AB22C59E62003795FC /* MenaceStateTransformer.hpp */,
+				17B412AA22C59E62003795FC /* MenaceStateTransformer.cpp */,
+				17B412AE22C5A1A2003795FC /* MSTMirror.hpp */,
+				17B412AD22C5A1A2003795FC /* MSTMirror.cpp */,
+				17B412B122C5A29A003795FC /* MSTRotate.hpp */,
+				17B412B022C5A29A003795FC /* MSTRotate.cpp */,
+				17B412B422C5A33A003795FC /* MSTCombined.hpp */,
+				17B412B322C5A33A003795FC /* MSTCombined.cpp */,
+			);
+			path = MenaceHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +256,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B4128E22C52171003795FC /* Player.cpp in Sources */,
+				17B412B522C5A33A003795FC /* MSTCombined.cpp in Sources */,
+				17B412B222C5A29A003795FC /* MSTRotate.cpp in Sources */,
 				17B4129A22C52E09003795FC /* RandomPlayer.cpp in Sources */,
 				17B4129E22C5303C003795FC /* MinMaxPlayer.cpp in Sources */,
 				17B4128B22C52161003795FC /* Game.cpp in Sources */,
+				17B412AC22C59E62003795FC /* MenaceStateTransformer.cpp in Sources */,
+				17B412AF22C5A1A2003795FC /* MSTMirror.cpp in Sources */,
 				17B4128822C5164F003795FC /* TicTacToe.cpp in Sources */,
 				17B4129522C527C6003795FC /* ConsolePlayer.cpp in Sources */,
 				17B4128022C51634003795FC /* main.cpp in Sources */,
