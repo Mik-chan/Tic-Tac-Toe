@@ -16,11 +16,10 @@
 
 int main(int argc, const char * argv[]) {
     for(size_t i = 0; i < 100; i++){
-        Game game(std::shared_ptr<Player>(new RandomPlayer),
+        Game game(std::shared_ptr<Player>(new MinMaxPlayer),
                   std::shared_ptr<Player>(new MinMaxPlayer));
         
         std::cout << game.play() << std::endl;
-
     }
     
     return 0;

@@ -23,7 +23,7 @@ Coordinate MinMaxPlayer::decide(const TicTacToe& ttt, TicTacToe::cell_state_t si
     return c;
 }
 
-MinMaxPlayer::MinMaxS MinMaxPlayer::minmax(uint16_t state){
+MinMaxPlayer::MinMaxS MinMaxPlayer::minmax(const uint16_t state){
     static std::map<uint16_t, MinMaxPlayer::MinMaxS> memory = {
         {0, {4, INFINITY}}
     };
@@ -31,51 +31,30 @@ MinMaxPlayer::MinMaxS MinMaxPlayer::minmax(uint16_t state){
     if(memory.find(state) == memory.end()){
         std::vector<MinMaxPlayer::MinMaxS> steps;
         std::array<uint16_t, 9> _state = get(state);
+        
+        MinMaxPlayer::MinMaxS best{9, -INFINITY};
+
         for(uint16_t i = 0; i < 9; i++){
             if(_state[i] != 0) continue;
-            steps.push_back({i, -INFINITY});
-        }
-        
-        if(steps.size() == 0){
-            memory[state] = {9, 1};
-        }
-        else{
-            MinMaxPlayer::MinMaxS total;
-            MinMaxPlayer::MinMaxS best = steps.front();
-            total.grade = 0;
-            for(auto& mm : steps){
-                uint16_t tmp_state = set(state, mm.where, 1);
-                if(check_win(true, tmp_state)) mm.grade = 1;
-                else if (check_win(false, tmp_state)) mm.grade = -1;
-                else{
-                    std::array<uint16_t, 9> _state = get(state);
-                    int sum = 0;
-                    for(uint16_t v : _state) sum += !v;
-                    if(!sum){
-                        mm.grade = 0;
-                    }
-                    else{
-                        tmp_state = flip_sides(tmp_state);
-                        auto tmp_mm = minmax(tmp_state);
-                        mm.grade = -tmp_mm.grade;
-                    }
-                }
-                
-                if(mm.grade > best.grade)
-                    best = mm;
-                
-                //total.grade += mm.grade;
+            MinMaxPlayer::MinMaxS mm{i, 0};
+            
+            uint16_t tmp_state = set(state, i, 1);
+            if(check_win(true, tmp_state)) mm.grade = 100;
+            else if (check_win(false, tmp_state)) mm.grade = -100;
+            else if (check_draw(tmp_state)) mm.grade = 0;
+            else{
+                tmp_state = flip_sides(tmp_state);
+                mm.grade = 1 - minmax(tmp_state).grade;
             }
             
-            //total.where = best.where;
-            //total.grade = best.grade;
-            memory[state] = best;
+            if(mm.grade > best.grade)
+                best = mm;
         }
         
+        memory[state] = best;
     }
     
-    MinMaxPlayer::MinMaxS result = memory[state];
-    return result;
+    return memory[state];
 }
 
 std::array<uint16_t, 9> MinMaxPlayer::get(uint16_t state) const{
@@ -133,4 +112,13 @@ bool MinMaxPlayer::check_win(bool me_winner, uint16_t state) const{
     (_state[2] == _state[4] && _state[4] == _state[6] && _state[6] == winner);
     
     return row_win || col_win || diag_win;
+}
+
+bool MinMaxPlayer::check_draw(uint16_t state) const{
+    std::array<uint16_t, 9> _state = get(state);
+    int sum = 0;
+    for(uint16_t val : _state)
+        sum += !val;
+    
+    return sum == 0;
 }
