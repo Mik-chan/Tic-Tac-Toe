@@ -14,14 +14,12 @@
 #include "Coordinate.hpp"
 
 class MenaceStateTransformer{
-public:
-    virtual ~MenaceStateTransformer(){};
-    
+public:    
     virtual uint16_t transform(uint16_t state) const = 0;
     virtual uint16_t revert(uint16_t state) const = 0;
     
-    virtual Coordinate transform(Coordinate coord) const;
-    virtual Coordinate revert(Coordinate coord) const;
+    Coordinate transform(Coordinate coord) const;
+    Coordinate revert(Coordinate coord) const;
     
 protected:
     std::array<uint16_t, 9> to_arr(uint16_t state) const;

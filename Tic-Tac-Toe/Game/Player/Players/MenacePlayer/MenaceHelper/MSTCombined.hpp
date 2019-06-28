@@ -20,6 +20,9 @@ public:
     uint16_t transform(uint16_t state) const;
     uint16_t revert(uint16_t state) const;
     
+    Coordinate transform(Coordinate coord) const;
+    Coordinate revert(Coordinate coord) const;
+    
 private:
     std::function<uint16_t(uint16_t)> _transform, _revert;
 };

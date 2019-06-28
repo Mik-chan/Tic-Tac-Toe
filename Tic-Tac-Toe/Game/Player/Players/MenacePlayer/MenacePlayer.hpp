@@ -11,7 +11,10 @@
 
 #include <map>
 #include <vector>
+#include <tuple>
 #include "Player.hpp"
+
+#include "MSTCombined.hpp"
 
 class MenacePlayer : public Player{
 public:
@@ -20,8 +23,16 @@ public:
     
     Coordinate decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
     
+    void learn(TicTacToe::game_state_t state, TicTacToe::cell_state_t side);
+    
 private:
-    std::map<uint16_t, std::vector<uint64_t>> brain;
+    std::map<uint16_t, std::array<uint64_t, 9>> brain;
+    std::vector<std::pair<uint16_t, uint16_t>> memory;
+    static const std::vector<MSTCombined> transformers;
+
+    size_t weighted_random(const std::array<uint64_t, 9>& weights);
+    uint16_t revert_state(uint16_t state) const;
+    const MSTCombined& best_transform(uint16_t state) const;
 };
 
 #endif /* MenacePlayer_hpp */

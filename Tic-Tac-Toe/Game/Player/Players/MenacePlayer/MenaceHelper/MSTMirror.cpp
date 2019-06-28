@@ -14,7 +14,7 @@ uint16_t MSTMirror::transform(uint16_t state) const{
     std::array<uint16_t, 9> new_arr{
         a[2], a[1], a[0],
         a[5], a[4], a[3],
-        a[8], a[7], a[4]
+        a[8], a[7], a[6]
     };
     
     return to_int(new_arr);

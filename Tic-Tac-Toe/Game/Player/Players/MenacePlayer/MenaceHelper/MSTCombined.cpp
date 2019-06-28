@@ -17,3 +17,22 @@ uint16_t MSTCombined::transform(uint16_t state) const{
 uint16_t MSTCombined::revert(uint16_t state) const{
     return _revert(state);
 }
+
+Coordinate MSTCombined::transform(Coordinate coord) const{
+    std::array<uint16_t, 9> tmp;
+    for(uint16_t& val : tmp) val = 0;
+    tmp[coord.minify(3)] = 1;
+    uint16_t tmp_int = transform(to_int(tmp));
+    tmp = to_arr(tmp_int);
+    return coord.coordify(std::distance(tmp.begin(), std::find(tmp.begin(), tmp.end(), 1)), 3);
+}
+
+Coordinate MSTCombined::revert(Coordinate coord) const{
+    std::array<uint16_t, 9> tmp;
+    for(uint16_t& val : tmp) val = 0;
+    tmp[coord.minify(3)] = 1;
+    uint16_t tmp_int = revert(to_int(tmp));
+    tmp = to_arr(tmp_int);
+    return coord.coordify(std::distance(tmp.begin(), std::find(tmp.begin(), tmp.end(), 1)), 3);
+}
+
