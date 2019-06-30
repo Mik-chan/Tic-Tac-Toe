@@ -31,9 +31,31 @@ int main(int argc, const char * argv[]) {
     WebSocketServerHandler::ptr wss = std::make_shared<WebSocketServerHandler>(net.io_context(),
                                                                               tcp::endpoint(tcp::v4(), 1234));
     
-    wss->read_handler = [wss](std::string msg, int id){
-        std::cout << id << ": " << msg << std::endl;
-        wss->get_session(id)->write(std::string("Your message was: ") + msg);
+    std::shared_ptr<MinMaxPlayer> mmp = std::make_shared<MinMaxPlayer>();
+    wss->read_handler = [wss, mmp](std::string msg, int id){
+        TicTacToe ttt(std::stod(msg));
+        
+        std::cout << id << ": " << std::endl;
+        std::cout << ttt << std::endl;
+        Coordinate coord = mmp->decide(ttt, TicTacToe::cell_state_t::circle);
+        ttt.play_circle(coord.x, coord.y);
+        std::cout << ttt << std::endl;
+        
+        WebSocketSession::ptr wsses = wss->get_session(id);
+        
+        if(ttt.get_game_state() != TicTacToe::game_state_t::going_on){
+            if(ttt.get_game_state() == TicTacToe::game_state_t::circle_won)
+                wsses->write(std::to_string(ttt.int_state() + 0 * std::pow(3, 9) + 1 * std::pow(3, 10)));
+            else if(ttt.get_game_state() == TicTacToe::game_state_t::cross_won)
+                wsses->write(std::to_string(ttt.int_state() + 1 * std::pow(3, 9) + 0 * std::pow(3, 10)));
+            else if(ttt.get_game_state() == TicTacToe::game_state_t::draw)
+                wsses->write(std::to_string(ttt.int_state() + 1 * std::pow(3, 9) + 1 * std::pow(3, 10)));
+            else if(ttt.get_game_state() == TicTacToe::game_state_t::error)
+                wsses->write(std::to_string(0));
+        }
+        else{
+            wsses->write(std::to_string(ttt.int_state()));
+        }
     };
     
     net.add_handler(wss);

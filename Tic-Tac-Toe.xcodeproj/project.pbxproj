@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A945A522C97FAC00812725 /* main_css.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A222C97FAC00812725 /* main_css.cpp */; };
+		17A945A622C97FAC00812725 /* index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A322C97FAC00812725 /* index.cpp */; };
+		17A945A722C97FAC00812725 /* main_js.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A422C97FAC00812725 /* main_js.cpp */; };
 		17AFB4A522C9040900493C1B /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17AFB4A322C9040900493C1B /* Network.cpp */; };
 		17AFB4A922C904E500493C1B /* NetworkHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17AFB4A722C904E500493C1B /* NetworkHandler.cpp */; };
 		17AFB4AD22C910D700493C1B /* WebSocketServerHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17AFB4AB22C910D700493C1B /* WebSocketServerHandler.cpp */; };
@@ -38,6 +41,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		17A9459F22C97F7D00812725 /* assets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assets.hpp; sourceTree = "<group>"; };
+		17A945A222C97FAC00812725 /* main_css.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_css.cpp; sourceTree = "<group>"; };
+		17A945A322C97FAC00812725 /* index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = index.cpp; sourceTree = "<group>"; };
+		17A945A422C97FAC00812725 /* main_js.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_js.cpp; sourceTree = "<group>"; };
 		17AFB4A322C9040900493C1B /* Network.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
 		17AFB4A422C9040900493C1B /* Network.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Network.hpp; sourceTree = "<group>"; };
 		17AFB4A722C904E500493C1B /* NetworkHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkHandler.cpp; sourceTree = "<group>"; };
@@ -84,6 +91,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17A945A122C97F8A00812725 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				17A9459F22C97F7D00812725 /* assets.hpp */,
+				17A945A322C97FAC00812725 /* index.cpp */,
+				17A945A222C97FAC00812725 /* main_css.cpp */,
+				17A945A422C97FAC00812725 /* main_js.cpp */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		17AFB4A222C9038300493C1B /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +152,7 @@
 		17B4127E22C51634003795FC /* Tic-Tac-Toe */ = {
 			isa = PBXGroup;
 			children = (
+				17A945A122C97F8A00812725 /* Assets */,
 				17AFB4A222C9038300493C1B /* Network */,
 				17B4129022C52788003795FC /* Game */,
 				17B4127F22C51634003795FC /* main.cpp */,
@@ -307,11 +326,14 @@
 				17B412B222C5A29A003795FC /* MSTRotate.cpp in Sources */,
 				17B4129A22C52E09003795FC /* RandomPlayer.cpp in Sources */,
 				17AFB4AD22C910D700493C1B /* WebSocketServerHandler.cpp in Sources */,
+				17A945A722C97FAC00812725 /* main_js.cpp in Sources */,
+				17A945A622C97FAC00812725 /* index.cpp in Sources */,
 				17B4129E22C5303C003795FC /* MinMaxPlayer.cpp in Sources */,
 				17B4128B22C52161003795FC /* Game.cpp in Sources */,
 				17B412AC22C59E62003795FC /* MenaceStateTransformer.cpp in Sources */,
 				17B412AF22C5A1A2003795FC /* MSTMirror.cpp in Sources */,
 				17B4128822C5164F003795FC /* TicTacToe.cpp in Sources */,
+				17A945A522C97FAC00812725 /* main_css.cpp in Sources */,
 				17B4129522C527C6003795FC /* ConsolePlayer.cpp in Sources */,
 				17B4128022C51634003795FC /* main.cpp in Sources */,
 				17B412A822C59D02003795FC /* MenacePlayer.cpp in Sources */,

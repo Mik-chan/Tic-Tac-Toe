@@ -17,8 +17,8 @@ class TicTacToe{
 public:
     enum cell_state_t {
         empty = 0,
-        cross = 1,
-        circle = 2
+        circle = 1,
+        cross = 2
     };
     
     enum game_state_t {

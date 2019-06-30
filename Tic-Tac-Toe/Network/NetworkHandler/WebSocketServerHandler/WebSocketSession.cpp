@@ -72,6 +72,7 @@ void WebSocketSession::on_read(beast::error_code ec, std::size_t bytes_transferr
     
     if(ec == websocket::error::closed){
         _is_listening = false;
+        close_handler(connection_id);
         return;
     }
     

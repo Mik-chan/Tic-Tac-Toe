@@ -30,6 +30,7 @@ public:
     int id() const;
     
     std::function<void(std::string, int)> read_handler = [](std::string, int){};
+    std::function<void(int)> close_handler = [](int){};
     
 private:
     
