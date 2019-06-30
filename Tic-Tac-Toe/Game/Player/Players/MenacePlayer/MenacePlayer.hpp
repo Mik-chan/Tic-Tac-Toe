@@ -12,6 +12,7 @@
 #include <map>
 #include <vector>
 #include <tuple>
+#include <string>
 #include "Player.hpp"
 
 #include "MSTCombined.hpp"
@@ -24,6 +25,9 @@ public:
     Coordinate decide(const TicTacToe& ttt, TicTacToe::cell_state_t side);
     
     void learn(TicTacToe::game_state_t state, TicTacToe::cell_state_t side);
+    
+    void save(const std::string& name);
+    void load(const std::string& name);
     
 private:
     std::map<uint16_t, std::array<uint64_t, 9>> brain;

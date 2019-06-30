@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <numeric>
 #include <random>
+#include <fstream>
 
 #include "MenacePlayer.hpp"
 #include "MSTMirror.hpp"
@@ -122,6 +123,40 @@ const MSTCombined& MenacePlayer::best_transform(uint16_t state) const{
                                  return a.transform(state) < b.transform(state);
                              });
 }
+
+void MenacePlayer::save(const std::string& name){
+    std::ofstream ofs(name, std::ofstream::binary);
+    
+    for(auto& braincell : brain){
+        ofs.write(reinterpret_cast<const char*>(&braincell.first), sizeof(uint16_t));
+        for(auto& decision : braincell.second)
+            ofs.write(reinterpret_cast<const char*>(&decision), sizeof(uint64_t));
+    }
+}
+
+void MenacePlayer::load(const std::string& name){
+    char uint16_t_buff[sizeof(uint16_t)];
+    char uint64_t_buff[sizeof(uint64_t)];
+    
+    std::ifstream ifs(name, std::ifstream::binary);
+    
+    if(!ifs) return;
+    
+    brain.clear();
+    while(!ifs.eof()){
+        ifs.read(uint16_t_buff, sizeof(uint16_t));
+        uint16_t state = *reinterpret_cast<uint16_t*>(uint16_t_buff);
+        
+        std::array<uint64_t, 9> decisions;
+        for(uint64_t& decision : decisions){
+            ifs.read(uint64_t_buff, sizeof(uint64_t));
+            decision = *reinterpret_cast<uint64_t*>(uint64_t_buff);
+        }
+        
+        brain[state] = decisions;
+    }    
+}
+
 
 const std::vector<MSTCombined> MenacePlayer::transformers{
     //Transform 1 : none
