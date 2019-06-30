@@ -72,6 +72,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17AFB4A222C9038300493C1B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		17B4127322C51634003795FC = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +98,7 @@
 		17B4127E22C51634003795FC /* Tic-Tac-Toe */ = {
 			isa = PBXGroup;
 			children = (
+				17AFB4A222C9038300493C1B /* Network */,
 				17B4129022C52788003795FC /* Game */,
 				17B4127F22C51634003795FC /* main.cpp */,
 			);
@@ -388,6 +396,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.70.0/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/boost/1.70.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -396,6 +406,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.70.0/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/boost/1.70.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
