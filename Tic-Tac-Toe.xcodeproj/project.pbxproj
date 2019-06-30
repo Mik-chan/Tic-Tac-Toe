@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17AFB4A522C9040900493C1B /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17AFB4A322C9040900493C1B /* Network.cpp */; };
+		17AFB4A922C904E500493C1B /* NetworkHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17AFB4A722C904E500493C1B /* NetworkHandler.cpp */; };
 		17B4128022C51634003795FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4127F22C51634003795FC /* main.cpp */; };
 		17B4128822C5164F003795FC /* TicTacToe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4128622C5164F003795FC /* TicTacToe.cpp */; };
 		17B4128B22C52161003795FC /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B4128922C52161003795FC /* Game.cpp */; };
@@ -34,6 +36,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		17AFB4A322C9040900493C1B /* Network.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
+		17AFB4A422C9040900493C1B /* Network.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Network.hpp; sourceTree = "<group>"; };
+		17AFB4A722C904E500493C1B /* NetworkHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkHandler.cpp; sourceTree = "<group>"; };
+		17AFB4A822C904E500493C1B /* NetworkHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NetworkHandler.hpp; sourceTree = "<group>"; };
 		17B4127C22C51634003795FC /* Tic-Tac-Toe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tic-Tac-Toe"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B4127F22C51634003795FC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		17B4128622C5164F003795FC /* TicTacToe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TicTacToe.cpp; sourceTree = "<group>"; };
@@ -75,8 +81,20 @@
 		17AFB4A222C9038300493C1B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				17AFB4A622C904CD00493C1B /* NetworkHandler */,
+				17AFB4A422C9040900493C1B /* Network.hpp */,
+				17AFB4A322C9040900493C1B /* Network.cpp */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		17AFB4A622C904CD00493C1B /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				17AFB4A822C904E500493C1B /* NetworkHandler.hpp */,
+				17AFB4A722C904E500493C1B /* NetworkHandler.cpp */,
+			);
+			path = NetworkHandler;
 			sourceTree = "<group>";
 		};
 		17B4127322C51634003795FC = {
@@ -264,6 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B4128E22C52171003795FC /* Player.cpp in Sources */,
+				17AFB4A922C904E500493C1B /* NetworkHandler.cpp in Sources */,
+				17AFB4A522C9040900493C1B /* Network.cpp in Sources */,
 				17B412B522C5A33A003795FC /* MSTCombined.cpp in Sources */,
 				17B412B222C5A29A003795FC /* MSTRotate.cpp in Sources */,
 				17B4129A22C52E09003795FC /* RandomPlayer.cpp in Sources */,

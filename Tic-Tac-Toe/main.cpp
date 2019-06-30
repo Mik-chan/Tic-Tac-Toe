@@ -16,7 +16,15 @@
 #include "MenacePlayer.hpp"
 #include "Game/Game.hpp"
 
-int main(int argc, const char * argv[]) {    
+#include "Network/Network.hpp"
+
+int main(int argc, const char * argv[]) {
+    
+    Network net;
+    
+    net.run();
+    
+    /*
     int wins = 0;
     int draw = 0;
     
@@ -71,5 +79,7 @@ int main(int argc, const char * argv[]) {
         Game game(menace, rand);
         std::cout << game.play() << std::endl;
     }
+     
+     */
     return 0;
 }
