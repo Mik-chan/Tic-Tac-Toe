@@ -10,6 +10,8 @@
 #include <memory>
 #include <random>
 
+#include <boost/asio.hpp>
+
 #include "ConsolePlayer.hpp"
 #include "RandomPlayer.hpp"
 #include "MinMaxPlayer.hpp"
@@ -18,9 +20,23 @@
 
 #include "Network/Network.hpp"
 
+#include "WebSocketServerHandler.hpp"
+
+using tcp = boost::asio::ip::tcp;
+
 int main(int argc, const char * argv[]) {
     
     Network net;
+    
+    WebSocketServerHandler::ptr wss = std::make_shared<WebSocketServerHandler>(net.io_context(),
+                                                                              tcp::endpoint(tcp::v4(), 1234));
+    
+    wss->read_handler = [wss](std::string msg, int id){
+        std::cout << id << ": " << msg << std::endl;
+        wss->get_session(id)->write(std::string("Your message was: ") + msg);
+    };
+    
+    net.add_handler(wss);
     
     net.run();
     

@@ -11,7 +11,7 @@
 
 #include <memory>
 
-class NetworkHandler : public std::enable_shared_from_this<NetworkHandler>{
+class NetworkHandler{
 public:
     typedef std::shared_ptr<NetworkHandler> ptr;
     

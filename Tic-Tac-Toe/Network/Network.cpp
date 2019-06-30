@@ -8,6 +8,8 @@
 
 #include "Network.hpp"
 
+namespace asio = boost::asio;
+
 Network::Network(){
     _is_running = false;
     _io_thread = nullptr;
@@ -51,4 +53,8 @@ void Network::add_handler(NetworkHandler::ptr handler){
 
 bool Network::is_running() const{
     return _is_running;
+}
+
+asio::io_context& Network::io_context(){
+    return _io;
 }

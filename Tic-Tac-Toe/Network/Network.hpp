@@ -16,8 +16,6 @@
 
 #include "NetworkHandler.hpp"
 
-namespace asio = boost::asio;
-
 class Network{
 public:
     Network();
@@ -30,9 +28,11 @@ public:
     
     bool is_running() const;
     
+    boost::asio::io_context& io_context();
+    
 private:
     bool _is_running;
-    asio::io_context _io;
+    boost::asio::io_context _io;
     std::vector<NetworkHandler::ptr> _handlers;
     std::shared_ptr<std::thread> _io_thread = nullptr;
 };
