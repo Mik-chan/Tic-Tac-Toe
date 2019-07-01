@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1751EC0922C99F7700184F9E /* HTTPServerHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1751EC0722C99F7700184F9E /* HTTPServerHandler.cpp */; };
+		1751EC0C22C9A1F200184F9E /* HTTPSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1751EC0A22C9A1F200184F9E /* HTTPSession.cpp */; };
 		17A945A522C97FAC00812725 /* main_css.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A222C97FAC00812725 /* main_css.cpp */; };
 		17A945A622C97FAC00812725 /* index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A322C97FAC00812725 /* index.cpp */; };
 		17A945A722C97FAC00812725 /* main_js.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17A945A422C97FAC00812725 /* main_js.cpp */; };
@@ -41,6 +43,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1751EC0722C99F7700184F9E /* HTTPServerHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HTTPServerHandler.cpp; sourceTree = "<group>"; };
+		1751EC0822C99F7700184F9E /* HTTPServerHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HTTPServerHandler.hpp; sourceTree = "<group>"; };
+		1751EC0A22C9A1F200184F9E /* HTTPSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HTTPSession.cpp; sourceTree = "<group>"; };
+		1751EC0B22C9A1F200184F9E /* HTTPSession.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HTTPSession.hpp; sourceTree = "<group>"; };
 		17A9459F22C97F7D00812725 /* assets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assets.hpp; sourceTree = "<group>"; };
 		17A945A222C97FAC00812725 /* main_css.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_css.cpp; sourceTree = "<group>"; };
 		17A945A322C97FAC00812725 /* index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = index.cpp; sourceTree = "<group>"; };
@@ -91,6 +97,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1751EC0622C99F5200184F9E /* HTTPServerHandler */ = {
+			isa = PBXGroup;
+			children = (
+				1751EC0822C99F7700184F9E /* HTTPServerHandler.hpp */,
+				1751EC0722C99F7700184F9E /* HTTPServerHandler.cpp */,
+				1751EC0B22C9A1F200184F9E /* HTTPSession.hpp */,
+				1751EC0A22C9A1F200184F9E /* HTTPSession.cpp */,
+			);
+			path = HTTPServerHandler;
+			sourceTree = "<group>";
+		};
 		17A945A122C97F8A00812725 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +132,7 @@
 		17AFB4A622C904CD00493C1B /* NetworkHandler */ = {
 			isa = PBXGroup;
 			children = (
+				1751EC0622C99F5200184F9E /* HTTPServerHandler */,
 				17AFB4AA22C910BF00493C1B /* WebSocketServerHandler */,
 				17AFB4A822C904E500493C1B /* NetworkHandler.hpp */,
 				17AFB4A722C904E500493C1B /* NetworkHandler.cpp */,
@@ -321,6 +339,8 @@
 				17AFB4B022C942F800493C1B /* WebSocketSession.cpp in Sources */,
 				17B4128E22C52171003795FC /* Player.cpp in Sources */,
 				17AFB4A922C904E500493C1B /* NetworkHandler.cpp in Sources */,
+				1751EC0922C99F7700184F9E /* HTTPServerHandler.cpp in Sources */,
+				1751EC0C22C9A1F200184F9E /* HTTPSession.cpp in Sources */,
 				17AFB4A522C9040900493C1B /* Network.cpp in Sources */,
 				17B412B522C5A33A003795FC /* MSTCombined.cpp in Sources */,
 				17B412B222C5A29A003795FC /* MSTRotate.cpp in Sources */,

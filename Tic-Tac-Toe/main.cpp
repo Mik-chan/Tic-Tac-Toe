@@ -21,8 +21,12 @@
 #include "Network/Network.hpp"
 
 #include "WebSocketServerHandler.hpp"
+#include "HTTPServerHandler.hpp"
+
+#include "assets.hpp"
 
 using tcp = boost::asio::ip::tcp;
+namespace http = boost::beast::http;
 
 int main(int argc, const char * argv[]) {
     
@@ -59,6 +63,58 @@ int main(int argc, const char * argv[]) {
     };
     
     net.add_handler(wss);
+    
+    HTTPServerHandler::ptr http = std::make_shared<HTTPServerHandler>(net.io_context(),
+                                                                  tcp::endpoint(tcp::v4(), 8081));
+    
+    http->request_handler = [](http::request<http::string_body> req, HTTPSession::ptr ses){
+        if(req.target() == "/" || req.target() == "/index.html"){
+            http::response<http::string_body> res(http::status::ok, req.version());
+            
+            res.set(http::field::content_type, "text/html");
+            res.keep_alive(req.keep_alive());
+            res.body() = std::string(reinterpret_cast<char*>(assets::index_html),
+                                     reinterpret_cast<char*>(assets::index_html) + assets::index_html_len);
+            res.prepare_payload();
+            
+            ses->respond(std::move(res));
+        }
+        else if(req.target() == "/main.css" ){
+            http::response<http::string_body> res(http::status::ok, req.version());
+            
+            res.set(http::field::content_type, "text/css");
+            res.keep_alive(req.keep_alive());
+            res.body() = std::string(reinterpret_cast<char*>(assets::main_css),
+                                     reinterpret_cast<char*>(assets::main_css) + assets::main_css_len);
+            res.prepare_payload();
+            
+            ses->respond(std::move(res));
+        }
+        else if(req.target() == "/main.js" ){
+            http::response<http::string_body> res(http::status::ok, req.version());
+            
+            res.set(http::field::content_type, "text/javascript");
+            res.keep_alive(req.keep_alive());
+            res.body() = std::string(reinterpret_cast<char*>(assets::main_js),
+                                     reinterpret_cast<char*>(assets::main_js) + assets::main_js_len);
+            res.prepare_payload();
+            
+            ses->respond(std::move(res));
+        }
+        else{
+            http::response<http::string_body> res{http::status::not_found, req.version()};
+            res.set(http::field::content_type, "text/html");
+            res.keep_alive(req.keep_alive());
+            res.body() = "The resource '" + std::string(req.target()) + "' was not found.";
+            res.prepare_payload();
+            
+            ses->respond(std::move(res));
+        }
+    };
+    
+    net.add_handler(http);
+    
+    system("open http://localhost:8081");
     
     net.run();
     
